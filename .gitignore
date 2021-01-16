@@ -1,0 +1,21 @@
+# dependencies
+node_modules
+
+# testing
+coverage
+
+# misc
+# .env.development.json
+# .env.production.json
+
+# production
+dist
+
+# log
+*.log
+yarn.lock
+package-lock.json
+
+# cache
+.eslintcache
+.DS_Store

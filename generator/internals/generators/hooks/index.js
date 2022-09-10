@@ -1,4 +1,5 @@
 const { workspace } = require('../config')
+const { toSlug } = require('../../lib/string')
 
 module.exports = {
   description: 'Add a new hooks',
@@ -12,7 +13,7 @@ module.exports = {
   ],
   actions: ({ name }) => [{
     type: 'add',
-    path: `${workspace}/hooks/${name.split(' ').join('-')}.tsx`,
+    path: `${workspace}/hooks/${toSlug(name)}.tsx`,
     templateFile: `./hooks/index.tsx.hbs`,
     skipIfExists: true,
   }]

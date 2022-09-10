@@ -1,16 +1,21 @@
 /**
  * 
- * {{ properCase type }}{{ properCase name }}{{ properCase subname }}
+ * {{ properCase type }}{{ properCase name }}{{ properCase variant }}
  * 
  */
 import React from 'react'
+{{#if wantStyles}}
+import styles from './index.module.css'
+{{/if}}
 
 type ComponentProps = {}
 
-const {{ propperCase type }}{{ propperCase name }}{{ propperCase subname }}: React.FC<ComponentProps> = () => {
+const {{ properCase type }}{{ properCase name }}{{ properCase variant }}: React.FC<ComponentProps> = () => {
   return (
-    <div>
-      Hello World!!!
+    <div data-testid="{{ toSlug name }}-{{ toSlug variant }}" {{#if wantStyles}}className={styles.container}{{/if}}>
+      Component {{ properCase type }}{{ properCase name }}{{ properCase variant }}
     </div>
   )
 }
+
+export default {{ properCase type }}{{ properCase name }}{{ properCase variant }}

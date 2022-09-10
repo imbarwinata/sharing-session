@@ -1,0 +1,14 @@
+/**
+ *
+ * Tests for {{> componentName}}
+ *
+ */
+import * as React from 'react'
+import { render, screen } from '@testing-library/react'
+import Component from './index'
+
+test('render', () => {
+  render(<Component />)
+  
+  expect(screen.getByTestId('{{ toSlug name }}-{{ toSlug variant }}')).toBeInTheDocument()
+})

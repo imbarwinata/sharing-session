@@ -1,0 +1,21 @@
+/**
+ * 
+ * {{> componentName}}
+ * 
+ */
+import React from 'react'
+{{#if wantStyles}}
+import styles from './index.module.css'
+{{/if}}
+
+type ComponentProps = {}
+
+const {{> componentName}}: React.FC<ComponentProps> = () => {
+  return (
+    <div data-testid="{{ toSlug name }}-{{ toSlug variant }}" {{#if wantStyles}}className={styles.container}{{/if}}>
+      Component {{> componentName}}
+    </div>
+  )
+}
+
+export default {{> componentName}}

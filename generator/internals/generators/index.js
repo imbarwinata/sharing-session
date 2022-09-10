@@ -9,6 +9,7 @@ const hooksGenerator = require('./hooks')
 
 module.exports = (plop) => {
   plop.setHelper('toSlug', (text) => toSlug(text))
+  plop.setPartial('componentName', '{{ properCase type }}{{ properCase name }}{{ properCase variant }}')
   plop.setGenerator('component', componentsGenerator)
   plop.setGenerator('hooks', hooksGenerator)
 }

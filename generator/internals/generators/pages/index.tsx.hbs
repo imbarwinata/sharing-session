@@ -1,0 +1,28 @@
+/**
+ * 
+ * Page{{ properCase name }}{{ properCase (isIndex variant) }}
+ * 
+ */
+import type { NextPage } from 'next'
+import Head from 'next/head'
+{{#if wantStyles}}
+import styles from './index.module.css'
+{{/if}}
+
+const Page{{ properCase name }}{{ properCase (isIndex variant) }}: NextPage = () => {
+  return (
+    <div data-testid="page-{{ toSlug name }}-{{ toSlug variant }}" {{#if wantStyles}}className={styles.container}{{/if}}>
+      <Head>
+        <title>{{ pageTitle }}</title>
+        <meta name="title" content="{{ pageTitle }}" />
+        <meta name="description" content="{{ pageDescription }}" />
+      </Head>
+
+      <div>
+        Page{{ properCase name }}{{ properCase (isIndex variant) }}
+      </div>
+    </div>
+  )
+}
+
+export default Page{{ properCase name }}{{ properCase (isIndex variant) }}

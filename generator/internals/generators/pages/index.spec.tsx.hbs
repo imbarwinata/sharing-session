@@ -1,0 +1,15 @@
+/**
+ *
+ * Tests for Page{{ properCase name }}{{ properCase (isIndex variant) }}
+ *
+ */
+ import * as React from 'react'
+ import { render, screen } from '@testing-library/react'
+ import Page from './index'
+ 
+ test('render', () => {
+   render(<Page />)
+   
+   expect(screen.getByTestId('page-{{ toSlug name }}-{{ toSlug variant }}')).toBeInTheDocument()
+ })
+ 

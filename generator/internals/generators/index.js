@@ -7,6 +7,7 @@ const { toSlug } = require('../lib/string')
 const componentsGenerator = require('./components')
 const pagesGenerator = require('./pages')
 const hooksGenerator = require('./hooks')
+// const promptsGenerator = require('./prompts')
 
 module.exports = async (plop) => {
   plop.setHelper('toSlug', (text) => toSlug(text))
@@ -16,6 +17,7 @@ module.exports = async (plop) => {
   plop.setGenerator('page', pagesGenerator)
   plop.setGenerator('component', componentsGenerator)
   plop.setGenerator('hooks', hooksGenerator)
+  // plop.setGenerator('prompts', promptsGenerator)
   // load another plopfile
   await plop.load('./load', {}, true)
 }

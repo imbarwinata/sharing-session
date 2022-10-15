@@ -22,6 +22,16 @@ module.exports = {
       message: 'Please input anything',
       validate: (data) => data ? true : 'The input is required!',
     },
+    // {
+    //   type: 'input',
+    //   name: 'inputTransformer',
+    //   message: 'Please input anything',
+    //   validate: (data) => data ? true : 'The input is required!',
+    //   transformer: (answer) => {
+    //     console.log(` -> transformer (${answer})`)
+    //     return answer
+    //   },
+    // },
     {
       type: 'number',
       name: 'number',
@@ -45,6 +55,8 @@ module.exports = {
       name: 'rawlist',
       message: 'Please select one',
       choices: choicesExpand.map((choice) => choice.value),
+      loop: false, // enable looping when user press up or down arrow
+      filter: answer => `${answer}-rawlist`,
     },
     {
       type: 'expand',
@@ -69,6 +81,7 @@ module.exports = {
       name: 'editor',
       type: 'editor',
       message: 'Please input anything',
+      waitUserInput: true,
     },
   ],
   actions: (data) => {

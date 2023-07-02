@@ -1,0 +1,26 @@
+// {{ properCase variant }}.stories.tsx
+
+import type { Meta, StoryObj } from '@storybook/react';
+
+import {{ properCase type }}{{ properCase name }}{{ properCase variant }} from '.';
+
+const meta: Meta<typeof {{ properCase type }}{{ properCase name }}{{ properCase variant }}> = {
+  title: '{{ properCase type }}/{{ properCase name }}',
+  component: {{ properCase type }}{{ properCase name }}{{ properCase variant }},
+};
+
+export default meta;
+type Story = StoryObj<typeof {{ properCase type }}{{ properCase name }}{{ properCase variant }}>;
+
+/*
+ *👇 Render functions are a framework specific feature to allow you control on how the component renders.
+ * See https://storybook.js.org/docs/react/api/csf
+ * to learn how to use render functions.
+ */
+{{#if isDefault}}
+export const Default: Story = {
+{{else}}
+export const {{ properCase variant }}: Story = {
+{{/if}}
+  render: () => <{{ properCase type }}{{ properCase name }}{{ properCase variant }} />,
+};

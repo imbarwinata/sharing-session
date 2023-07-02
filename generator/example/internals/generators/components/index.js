@@ -43,6 +43,12 @@ module.exports = {
       message: 'Do you want to add css module?',
       default: true
     },
+    {
+      type: 'confirm',
+      name: 'wantStorybook',
+      message: 'Do you want to add storybook file?',
+      default: true
+    },
   ],
   actions: (data) => {
     const name = toSlug(data.name)
@@ -51,11 +57,13 @@ module.exports = {
     let pathComponent = `${workspace}/components/${data.type}/${name}/index.tsx`
     let pathComponentTest = `${workspace}/components/${data.type}/${name}/index.spec.tsx`
     let pathComponentStyles = `${workspace}/components/${data.type}/${name}/index.module.css`
+    let pathComponentStorybook = `${workspace}/components/${data.type}/${name}/index.stories.tsx`
 
     if (data.variant !== 'index') {
       pathComponent = `${workspace}/components/${data.type}/${name}/${variant}/index.tsx`
       pathComponentTest = `${workspace}/components/${data.type}/${name}/${variant}/index.spec.tsx`
       pathComponentStyles = `${workspace}/components/${data.type}/${name}/${variant}/index.module.css`
+      pathComponentStorybook = `${workspace}/components/${data.type}/${name}/${variant}/index.stories.tsx`
     }
 
     const actions = [{
@@ -80,6 +88,18 @@ module.exports = {
         path: pathComponentStyles,
         templateFile: './components/index.css.hbs',
         skipIfExists: true,
+      })
+    }
+
+    if (data.wantStorybook) {
+      actions.push({
+        type: 'add',
+        path: pathComponentStorybook,
+        templateFile: './components/index.stories.tsx.hbs',
+        skipIfExists: true,
+        data: {
+          isDefault: data.variant === 'index',
+        },
       })
     }
 

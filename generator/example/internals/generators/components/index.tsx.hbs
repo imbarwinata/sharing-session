@@ -3,14 +3,14 @@
  * {{ properCase type }}{{ properCase name }}{{ properCase variant }}
  * 
  */
-import React from 'react'
+import { FC, memo } from 'react'
 {{#if wantStyles}}
 import styles from './index.module.css'
 {{/if}}
 
 type ComponentProps = {}
 
-const {{ properCase type }}{{ properCase name }}{{ properCase variant }}: React.FC<ComponentProps> = () => {
+const {{ properCase type }}{{ properCase name }}{{ properCase variant }}: FC<ComponentProps> = () => {
   return (
     <div data-testid="{{ toSlug name }}-{{ toSlug variant }}" {{#if wantStyles}}className={styles.container}{{/if}}>
       Component {{ properCase type }}{{ properCase name }}{{ properCase variant }}
@@ -18,4 +18,4 @@ const {{ properCase type }}{{ properCase name }}{{ properCase variant }}: React.
   )
 }
 
-export default {{ properCase type }}{{ properCase name }}{{ properCase variant }}
+export default memo({{ properCase type }}{{ properCase name }}{{ properCase variant }})

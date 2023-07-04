@@ -40,7 +40,7 @@ export default {
       data: {
         date: new Date(),
       },
-      skip: ({ name }) => {
+      skip: ({ name, description }) => {
         const findLib = registered.find((lib) => lib.name === name);
         if (findLib) return 'Library already registered!';
         if (!name || !description) return 'Name and description are required!'
@@ -54,7 +54,7 @@ export default {
       data: {
         date: new Date(),
       },
-      skip: ({ name }) => {
+      skip: ({ name, description }) => {
         const findLib = registered.find((lib) => lib.name === name);
         if (findLib) return 'Library already registered!';
         if (!name || !description) return 'Name and description are required!'

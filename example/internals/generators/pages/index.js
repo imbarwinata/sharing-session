@@ -2,18 +2,18 @@ const { pageWorkspace } = require('../config')
 const { toSlug } = require('../../lib/string')
 
 module.exports = {
-  description: 'Add a new component',
+  description: 'Add a new page',
   prompts: [
     {
       type: 'input',
       name: 'name',
-      message: 'Please input component name',
+      message: 'Please input page name',
       validate: (data) => data ? true : 'The name is required!',
     },
     {
       type: 'input',
       name: 'variant',
-      message: 'Please input component variant',
+      message: 'Please input page variant',
       validate: (data) => data ? true : 'The variant is required!',
       default: 'index',
     },
